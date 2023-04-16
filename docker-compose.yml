@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+      EFGH: TEST
+    ports:
+      - 6006:1880
+    volumes:
+      - node_red_data:/data
+    entrypoint: "sh -c 'echo OK && npm i ioredis lodash moment && bash ./entrypoint.sh'"
+  mongo:
+    image: mongo:4.4
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example##001
+      MONGODB_USER: usr01
+      MONGODB_DATABASE: db01
+      MONGODB_PASS: dbpw0001
+    ports:
+      - '6010:27017'
+    volumes: 
+      - mongo_data:/data/db
+  redis:
+    image: redis:7
+    ports:
+      - '6007:6379'
+    command: redis-server  --loglevel warning --requirepass hk23YVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    #  /usr/local/etc/redis/redis.conf
+    volumes: 
+      - redis_data:/data
+      # CONFIG SET notify-keyspace-events KEA
+      # - ./redis_config:/usr/local/etc/redis
+  eclipse-mosquitto:
+    hostname: mosquitto
+    image: eclipse-mosquitto
+    ports: 
+      - 6011:1883
+      - 6012:9001
+    volumes:
+      - mqtt_data:/mosquitto/data
+      - mqtt_config:/mosquitto/config
+
+volumes:
+  node_red_data: {}
+  redis_data: {}
+  mongo_data: {}
+  mqtt_data: {}
+  mqtt_config: {}

@@ -1,0 +1,2212 @@
+[
+    {
+        "id": "238500ba1bd2fd21",
+        "type": "tab",
+        "label": "Initial flow",
+        "disabled": false,
+        "info": "This flow must be run before running production usage",
+        "env": []
+    },
+    {
+        "id": "18e62190327d11c7",
+        "type": "tab",
+        "label": "[AuthFlow] Web Admin",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6cf6bf0dafce6388",
+        "type": "tab",
+        "label": "[Flow01] Device HeartBeat",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cb4c372bba4f606a",
+        "type": "tab",
+        "label": "[Flow02] Send Command to Device",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a8898265bd7fa53c",
+        "type": "tab",
+        "label": "[Flow03] Query Data",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "aba14334b01ea1c7",
+        "type": "tab",
+        "label": "[Flow04] Mutation Data",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ae9198693d2cd410",
+        "type": "tab",
+        "label": "Test JWT",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "608253cc98b204c1",
+        "type": "tab",
+        "label": "Test Mongo",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "28a513ec6ae2362d",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Redis Test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "11ffae1af4a97d4a",
+        "type": "group",
+        "z": "18e62190327d11c7",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "a81d7461646666a4",
+            "b7b36f722c575a59",
+            "da4ee4f06643799f"
+        ],
+        "x": 54,
+        "y": 119
+    },
+    {
+        "id": "6031756b32233f96",
+        "type": "redis-config",
+        "name": "RedisH23",
+        "options": "{\"port\":6379,\"host\":\"redis\",\"username\":\"default\",\"password\":\"hk23YVX7EwVmmxKPCDmwMtyKVge8oLd2t81\",\"db\":0}",
+        "cluster": false,
+        "optionsType": "json"
+    },
+    {
+        "id": "a0efbb89.5e42d8",
+        "type": "redis-config",
+        "name": "local",
+        "options": "{}",
+        "cluster": false,
+        "optionsType": "json"
+    },
+    {
+        "id": "a8778dc2dd145f0c",
+        "type": "mqtt-broker",
+        "name": "H23_MQTT",
+        "broker": "eclipse-mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5ffae5aac8f8aaea",
+        "type": "mongodb4-client",
+        "name": "h23",
+        "protocol": "mongodb",
+        "hostname": "mongo",
+        "port": "",
+        "dbName": "h23",
+        "appName": "",
+        "authSource": "",
+        "authMechanism": "SCRAM-SHA-256",
+        "tls": false,
+        "tlsCAFile": "",
+        "tlsCertificateKeyFile": "",
+        "tlsInsecure": false,
+        "connectTimeoutMS": "30000",
+        "socketTimeoutMS": "0",
+        "minPoolSize": "0",
+        "maxPoolSize": "100",
+        "maxIdleTimeMS": "0",
+        "uri": "mongodb://mongo:27017/h23",
+        "advanced": "{}",
+        "uriTabActive": "tab-uri-advanced"
+    },
+    {
+        "id": "0c9923070de109e8",
+        "type": "mongo-client",
+        "uri": "mongodb://mongo:27017/h23",
+        "name": "h23",
+        "options": ""
+    },
+    {
+        "id": "a1740c165feb7f56",
+        "type": "mqtt-broker",
+        "name": "MQTT_TEST",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3961da8c2dd55d01",
+        "type": "mongo-client in",
+        "z": "238500ba1bd2fd21",
+        "configNode": "0c9923070de109e8",
+        "name": "MongoClient",
+        "collectionName": "",
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "de6c69b9442fcab9"
+            ]
+        ]
+    },
+    {
+        "id": "de6c69b9442fcab9",
+        "type": "function",
+        "z": "238500ba1bd2fd21",
+        "name": "Initial Global",
+        "func": "global.set('mongo', msg.db);\n\nglobal.set(\"DEFAULT_DEVICE_INTERVAL_SECONDS\", 2*60);\nglobal.set(\"ALERT_PHONE_NUMBER\", \"+84978411782\");\nglobal.set(\"PARTNER_HOOK_API\", \"https://canhbao.viettel.vn\");\n\n\n\nconst requireGlobal = global.get('require');\nconst axios = requireGlobal('axios');\nconst ACCESS_TOKEN = \"IriuA0MqBjibKUcQ3fyEaixUSEHROBx3\";\nconst alert_phone_number = global.get(\"ALERT_PHONE_NUMBER\");\n\nfunction sendSMS  ( content, type, sender) {\n    node.warn(arguments);\n    node.warn(\"axios\");\n    node.warn(!!axios);\n    try {\n        var url = 'https://api.speedsms.vn/index.php/sms/send';\n        var buf = new Buffer(ACCESS_TOKEN + ':x');\n        var auth = \"Basic \" + buf.toString('base64');\n        return axios.post(url,{\n            to:  [alert_phone_number],\n            content: content,\n            sms_type: type,\n            sender: sender || alert_phone_number\n        }, {\n            headers: {\n                'Authorization': auth,\n                'Content-Type': 'application/json',\n            }\n        }).catch(e => node.warn(e.message))\n    } catch (err) {\n        node.warn(\"error..\"+err.message);\n    }\n };\n\nfunction callPartnerApi(message) {\n    const url = global.get('PARTNER_HOOK_API');\n    node.warn(arguments);\n    node.warn(\"axios\");\n    node.warn(!!axios);\n    try {\n        return axios.post(url, {\n            message,\n            date: new Date()\n        }, {\n            headers: {\n                'Content-Type': 'application/json',\n            }\n        }).catch(e => node.warn(e.message))\n    } catch (err) {\n        node.warn(\"error..\" + err.message);\n    }\n}\n\nglobal.set('sendSMS', sendSMS);\nglobal.set('callPartnerApi', callPartnerApi);\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba29e44ec9cd9912",
+        "type": "inject",
+        "z": "238500ba1bd2fd21",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "3961da8c2dd55d01"
+            ]
+        ]
+    },
+    {
+        "id": "a81d7461646666a4",
+        "type": "http in",
+        "z": "18e62190327d11c7",
+        "d": true,
+        "g": "11ffae1af4a97d4a",
+        "name": "Login Web",
+        "url": "/auth/login",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "da4ee4f06643799f"
+            ]
+        ]
+    },
+    {
+        "id": "b7b36f722c575a59",
+        "type": "http response",
+        "z": "18e62190327d11c7",
+        "d": true,
+        "g": "11ffae1af4a97d4a",
+        "name": "Login Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 820,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "da4ee4f06643799f",
+        "type": "function",
+        "z": "18e62190327d11c7",
+        "d": true,
+        "g": "11ffae1af4a97d4a",
+        "name": "Check User Credential",
+        "func": "return global.get('mongo').collection('users')\n    .findOne({\n        username: msg.payload.username,\n        pasword: msg.payload.password\n    },{username:1,password:0})\n    .then(r => {\n        node.warn(\"OK data: \" + r);\n        if (!r) {\n            msg.payload = { status: false };\n            msg.statusCode = 401;\n            node.send({ payload: { status: false }, statusCode: 401 }, false);\n            node.done();\n            return msg;\n        } else {\n            msg.payload = r;\n            msg.statusCode = 200;\n            node.send({ payload: r, statusCode: 200 }, false);\n            return msg;\n        }\n     \n        node.done();\n    })\n    .catch(e => {\n        node.warn(\"err: \"+err.message);\n        msg.payload = { status: false };\n        msg.statusCode = 401;\n        node.send({ payload: { status: false }, statusCode: 401 }, false);\n        node.done();\n        return msg;\n    })   \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "b7b36f722c575a59"
+            ]
+        ]
+    },
+    {
+        "id": "5d296fba87763be2",
+        "type": "jwt sign",
+        "z": "18e62190327d11c7",
+        "name": "Sign Token",
+        "alg": "HS256",
+        "exp": "999999999",
+        "jwkurl": "",
+        "jwkkid": "",
+        "secret": "123",
+        "key": "",
+        "signvar": "payload",
+        "storetoken": "payload",
+        "x": 890,
+        "y": 240,
+        "wires": [
+            [
+                "e9c6e3c9d224176b"
+            ]
+        ]
+    },
+    {
+        "id": "f2bc5ccd3babcf7c",
+        "type": "switch",
+        "z": "18e62190327d11c7",
+        "name": "",
+        "property": "payload['username']",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 300,
+        "wires": [
+            [
+                "5d296fba87763be2"
+            ],
+            [
+                "2746ed17b73d6074"
+            ]
+        ]
+    },
+    {
+        "id": "e9c6e3c9d224176b",
+        "type": "http response",
+        "z": "18e62190327d11c7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1110,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2746ed17b73d6074",
+        "type": "http response",
+        "z": "18e62190327d11c7",
+        "name": "",
+        "statusCode": "401",
+        "headers": {},
+        "x": 880,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3eb341934376b987",
+        "type": "function",
+        "z": "18e62190327d11c7",
+        "name": "set payload",
+        "func": "msg.db.collection('users')\n    .findOne({\n        username: msg.payload.username,\n        pasword: msg.payload.password\n    },{username:1,password:0})\n    .then(r => node.send({ payload: r }))\n    .catch(e => node.error(e.message, msg))   \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 300,
+        "wires": [
+            [
+                "f2bc5ccd3babcf7c"
+            ]
+        ]
+    },
+    {
+        "id": "90be18d69226d521",
+        "type": "http in",
+        "z": "18e62190327d11c7",
+        "name": "Login",
+        "url": "/login",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "c247a1a367e6a4e1"
+            ]
+        ]
+    },
+    {
+        "id": "7929637f01cd3364",
+        "type": "inject",
+        "z": "18e62190327d11c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.password",
+                "v": "123",
+                "vt": "str"
+            },
+            {
+                "p": "payload.username",
+                "v": "a@a.com",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 360,
+        "wires": [
+            [
+                "c247a1a367e6a4e1"
+            ]
+        ]
+    },
+    {
+        "id": "c247a1a367e6a4e1",
+        "type": "mongo-client in",
+        "z": "18e62190327d11c7",
+        "configNode": "0c9923070de109e8",
+        "name": "MongoClient",
+        "collectionName": "users",
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "3eb341934376b987"
+            ]
+        ]
+    },
+    {
+        "id": "b672d25bdc523e1d",
+        "type": "function",
+        "z": "6cf6bf0dafce6388",
+        "name": "Device Offline Handler",
+        "func": "\nconst publisher = global.get('publisher');\n\npublisher\n    .multi()\n    .set(`TestDevice`, 1)\n    .expire(\n        `TestDevice`,\n        5\n    )\n    .exec();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "const requireGlobal = global.get('require');\n\nconst Redis = requireGlobal('ioredis');\nconst axios = requireGlobal('axios');\n\nconst subscriber = new Redis({\n    host: \"redis\", port: 6379, db: 0,\n    username: 'default',\n    password: 'hk23YVX7EwVmmxKPCDmwMtyKVge8oLd2t81',\n\n});\n\nconst publisher = new Redis({\n    host: \"redis\", port: 6379, db: 0,\n    username: 'default',\n    password: 'hk23YVX7EwVmmxKPCDmwMtyKVge8oLd2t81',\n\n});\nnode.warn(\"Redis configuring...\");\n\nglobal.set('subscriber', subscriber);\nglobal.set('publisher', publisher);\nconst sendSMS = global.get('sendSMS');\nnode.warn(\"SendSMS\");\nnode.warn(!!sendSMS)\n\nconst callPartnerApi = global.get('callPartnerApi');\nnode.warn(\"callPartnerApi\");\nnode.warn(!!callPartnerApi)\n\n\nsubscriber.on('connect', () => {\n    subscriber.on('ready', async () => {\n        node.warn(\"SUBCRIBED\");\n        subscriber.subscribe('__keyevent@0__:expired');\n    });\n});\n\nsubscriber.on('message', async (channel, message) => {\n\n    global.get('mongo').collection('devices')\n        .updateOne( \n            { device_id_ref: message },  \n             { $set: { status: 0, last_seen_time: new Date() } }\n            \n        ).then(r => {\n           // node.warn(message + \" Offline - OK data: \" + r);\n            if (sendSMS) {\n                return sendSMS(`Device with id ${message} just offline. Notify from IoT LTE Network Supervisor - Team Helsinki`, 2, '');\n            }\n            if (callPartnerApi) {\n                return callPartnerApi( `Device with id ${message} just offline. Notify from IoT LTE Network Supervisor - Team Helsinki`);\n            }\n\n            global.get('mongo').collection('device_history')\n                .findOne({\n                    device_id_ref: message,\n                }).then(r3 => {\n                    // check if last status change, save history for reduce data storage\n                    if (r3.status != 0) {\n                        global.get('mongo').collection('device_history').insertOne({\n                            device_id: r3.device_id,\n                            status: 0,\n                            device_id_ref: r3.device_id_ref,\n                            signal_info: null,\n                            created_at: new Date()\n                        });\n                    }\n                });\n\n        })\n\n});\n",
+        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst subscriber = global.get('subscriber');\nsubscriber.unsubscribe('message');\n// subscriber.removeListener('message', () => {});",
+        "libs": [
+            {
+                "var": "moment",
+                "module": "moment"
+            }
+        ],
+        "x": 520,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8000a350d03a0be8",
+        "type": "mqtt in",
+        "z": "6cf6bf0dafce6388",
+        "name": "",
+        "topic": "/iot/signal-data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a8778dc2dd145f0c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 140,
+        "wires": [
+            [
+                "5a5477810769eef3"
+            ]
+        ]
+    },
+    {
+        "id": "bd90e98bd4385183",
+        "type": "debug",
+        "z": "6cf6bf0dafce6388",
+        "name": "PingLogger",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "5a5477810769eef3",
+        "type": "function",
+        "z": "6cf6bf0dafce6388",
+        "name": "KeepDeviceAliveHandler",
+        "func": "const DEFAULT_DEVICE_INTERVAL_SECONDS = global.get('DEFAULT_DEVICE_INTERVAL_SECONDS');\n\nnode.warn(\"DEFAULT_DEVICE_INTERVAL_SECONDS \" + DEFAULT_DEVICE_INTERVAL_SECONDS);\nconst publisher = global.get('publisher');\nnode.warn('msg_payload: '+JSON.stringify(msg.payload));\nconst payload = String(msg.payload).split(';');\nconst device_id_ref = payload[0];\nreturn publisher.get(`${device_id_ref}_INTERVAL_SECONDS`)\n.then(i_seconds => {\n    const i_seconds_run = i_seconds || DEFAULT_DEVICE_INTERVAL_SECONDS;\n    node.warn(\"DEFAULT SECONDS: \" + i_seconds_run );\n\n    \n\n    return publisher\n        .multi()\n        .set(device_id_ref, 1)\n        .expire(device_id_ref, 5)\n        .exec()\n        .then(() => {\n            return global.get('mongo').collection('devices')\n                .updateOne(\n                    {\n                      device_id_ref: device_id_ref\n                    }, { $set: { \n                        status: 1,\n                        device: \"Helsinki\",\n                        last_seen_time: new Date(),\n                        location_coords: [21.016932, 105.535784],\n                        location_name: \"Khu Công Nghệ Cao Hòa Lạc, Thạch Thất, Hà Nội\"\n                      } \n                    }, {\n                        upsert: true,\n                        new: true\n                    }\n                    )\n                .then(r => {\n                   // node.warn(\"OK data: \" + r);\n                    global.get('mongo').collection('devices')\n                    .findOne({ \n                        device_id_ref: device_id_ref \n                    }).then(r2 => {\n                        if (!r2) return;\n                        if (r2.status == null) return;\n                         global.get('mongo').collection('device_history')\n                            .findOne({\n                                device_id: r2._id.toString(),\n                            }).then(r3 => {\n                                // check if last status change, save history for reduce data storage\n                                // if (!r3 || (r3.status != r2.status)) {\n                                     global.get('mongo').collection('device_history').insertOne({\n                                         device_id: r2._id.toString(),\n                                        status: r2.status,\n                                         device_id_ref: r2.device_id_ref,\n                                        signal_info: {\n                                            rsrq: 30,\n                                            rsrp: 30\n                                        },\n                                        created_at: new Date()\n                                    });\n                                // }\n                            });\n                        \n                    })\n                    \n                }).catch(e => {\n                    node.warn(\"Save error: \" + e.message);\n                });\n        });\n\n});\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\n// const subscriber = flow.get('subscriber');\n\n// subscriber.removeListener('message', () => {});",
+        "libs": [
+            {
+                "var": "moment",
+                "module": "moment"
+            }
+        ],
+        "x": 550,
+        "y": 140,
+        "wires": [
+            [
+                "bd90e98bd4385183"
+            ]
+        ]
+    },
+    {
+        "id": "3617be7fb99525c0",
+        "type": "inject",
+        "z": "6cf6bf0dafce6388",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "device_02;35db;100sp",
+        "payloadType": "str",
+        "x": 260,
+        "y": 80,
+        "wires": [
+            [
+                "5a5477810769eef3"
+            ]
+        ]
+    },
+    {
+        "id": "7eba8ecffc93f3b0",
+        "type": "mqtt out",
+        "z": "6cf6bf0dafce6388",
+        "name": "",
+        "topic": "/iot/command",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a8778dc2dd145f0c",
+        "x": 780,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2782fcd20d7098b5",
+        "type": "inject",
+        "z": "6cf6bf0dafce6388",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 380,
+        "wires": [
+            [
+                "0e76bc583501dabd"
+            ]
+        ]
+    },
+    {
+        "id": "0e76bc583501dabd",
+        "type": "change",
+        "z": "6cf6bf0dafce6388",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "PAYLOAD\\na",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 380,
+        "wires": [
+            [
+                "7eba8ecffc93f3b0"
+            ]
+        ]
+    },
+    {
+        "id": "cecc8409d3479778",
+        "type": "http in",
+        "z": "6cf6bf0dafce6388",
+        "name": "Send Signal Data",
+        "url": "/iot/signal-data",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "5a5477810769eef3",
+                "f2c2a4e4e468f6a7"
+            ]
+        ]
+    },
+    {
+        "id": "e39da179296c215f",
+        "type": "function",
+        "z": "6cf6bf0dafce6388",
+        "name": "Send SMS",
+        "func": "const sendSMS = global.get('sendSMS');\nnode.warn(\"SendSMS\");\nnode.warn(!!sendSMS)\nif (!sendSMS) return;\nsendSMS([\"0787245251\"], `Device with id x just offline. Notify from IoT IoT LTE Network Supervisor - Team Helsinki`, 2, '').then(e => node.warn(\"OK\"+JSON.stringify(e)));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b89a6a69d5001d7c",
+        "type": "inject",
+        "z": "6cf6bf0dafce6388",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "e39da179296c215f"
+            ]
+        ]
+    },
+    {
+        "id": "f2c2a4e4e468f6a7",
+        "type": "debug",
+        "z": "6cf6bf0dafce6388",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c09bfbafab7293f2",
+        "type": "mqtt out",
+        "z": "cb4c372bba4f606a",
+        "name": "",
+        "topic": "/iot/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a8778dc2dd145f0c",
+        "x": 760,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "63cd682200266430",
+        "type": "inject",
+        "z": "cb4c372bba4f606a",
+        "name": "Test Command",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 280,
+        "wires": [
+            [
+                "1d9f578367bc1b17"
+            ]
+        ]
+    },
+    {
+        "id": "1d9f578367bc1b17",
+        "type": "change",
+        "z": "cb4c372bba4f606a",
+        "name": "Prepare Command",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "send_interval_second:3;send_fields:signal_rsrp,signal_ok",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 240,
+        "wires": [
+            [
+                "c09bfbafab7293f2"
+            ]
+        ]
+    },
+    {
+        "id": "fed7e5bc37b3a7c0",
+        "type": "http in",
+        "z": "cb4c372bba4f606a",
+        "name": "Send Command",
+        "url": "/send-command",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "1d9f578367bc1b17"
+            ]
+        ]
+    },
+    {
+        "id": "fd323eb34be59e9f",
+        "type": "http in",
+        "z": "a8898265bd7fa53c",
+        "name": "List Devices",
+        "url": "/devices",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "da92c1bf4a491c32"
+            ]
+        ]
+    },
+    {
+        "id": "980334930d18968f",
+        "type": "http response",
+        "z": "a8898265bd7fa53c",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "0eb871ca4db9bbed",
+        "type": "function",
+        "z": "a8898265bd7fa53c",
+        "name": "Get List Device (No pagination)",
+        "func": "return global.get('mongo').collection('devices')\n    .find({\n        // last_seen_time: {\n        //     $gte: new Date().getDate() - 1\n        // }\n    })\n    .toArray()\n    .then(r => {\n        node.warn(\"OK data: \" + r);\n        if (!r) {\n            msg.payload = { status: false };\n            msg.statusCode = 401;\n            node.send({ payload: { status: false }, statusCode: 400 }, false);\n            node.done();\n            return msg;\n        } else {\n            msg.payload = r;\n            msg.statusCode = 200;\n            node.send({ payload: r, statusCode: 200 }, false);\n            return msg;\n        }\n     \n        node.done();\n    })\n    .catch(e => {\n        node.warn(\"err: \"+err.message);\n        msg.payload = { status: false };\n        msg.statusCode = 401;\n        node.send({ payload: { status: false }, statusCode: 400 }, false);\n        node.done();\n        return msg;\n    })   \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 180,
+        "wires": [
+            [
+                "980334930d18968f"
+            ]
+        ]
+    },
+    {
+        "id": "da92c1bf4a491c32",
+        "type": "jwt verify",
+        "z": "a8898265bd7fa53c",
+        "name": "",
+        "alg": [
+            "HS256"
+        ],
+        "jwkurl": "",
+        "secret": "123",
+        "key": "",
+        "signvar": "bearer",
+        "storetoken": "token",
+        "x": 370,
+        "y": 180,
+        "wires": [
+            [
+                "0eb871ca4db9bbed"
+            ]
+        ]
+    },
+    {
+        "id": "0b74727ffed10712",
+        "type": "http in",
+        "z": "a8898265bd7fa53c",
+        "name": "Get Config",
+        "url": "/get-config",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "35ded16682b1970f"
+            ]
+        ]
+    },
+    {
+        "id": "6c3dfbcef20aba7e",
+        "type": "http response",
+        "z": "a8898265bd7fa53c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "35ded16682b1970f",
+        "type": "function",
+        "z": "a8898265bd7fa53c",
+        "name": "Handler",
+        "func": "const DEFAULT_DEVICE_INTERVAL_SECONDS = global.get('DEFAULT_DEVICE_INTERVAL_SECONDS');\nmsg.payload.interval_send_time = DEFAULT_DEVICE_INTERVAL_SECONDS;\n\nconst ALERT_PHONE_NUMBER = global.get('ALERT_PHONE_NUMBER');\nmsg.payload.alert_phone_number = DEFAULT_DEVICE_INTERVAL_SECONDS;\n\nconst PARTNER_HOOK_API = global.get('DEFAULT_DEVICE_INTERVAL_SECONDS');\nmsg.payload.partner_hook_api = PARTNER_HOOK_API;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "moment",
+                "module": "moment"
+            }
+        ],
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "6c3dfbcef20aba7e"
+            ]
+        ]
+    },
+    {
+        "id": "ceb35eb014e9b671",
+        "type": "http in",
+        "z": "a8898265bd7fa53c",
+        "name": "List Device Histories",
+        "url": "/device-histories",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "da36a99ef6c082e5",
+                "d5a5814ea449fde6"
+            ]
+        ]
+    },
+    {
+        "id": "90ae6c5023eaa6ea",
+        "type": "http response",
+        "z": "a8898265bd7fa53c",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 800,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f0a6c47b42789bf7",
+        "type": "function",
+        "z": "a8898265bd7fa53c",
+        "name": "Get List Device History",
+        "func": "const requireApp = global.get('require');\n// const mongoose = requireApp('mongoose');\n\n// node.warn((\"well \" + JSON.stringify(msg.payload)));\nconst filters = {\n    device_id: msg.payload.device_id\n    // created_at: {\n    //     $gte: new Date().getDate() - 1\n    // }\n};\nnode.warn((\"filter \" + JSON.stringify(filters)));\nreturn global.get('mongo').collection('device_history')\n    .find(filters)\n    .sort({ created_at: -1 })\n    .limit(100)\n    .toArray()\n    .then(r => {\n        node.warn(\"OK data: \" + r);\n        if (!r) {\n            msg.payload = { status: false };\n            msg.statusCode = 404;\n            node.send({ payload: { status: false }, statusCode: 404 }, false);\n            node.done();\n            return msg;\n        } else {\n            msg.payload = r;\n            msg.statusCode = 200;\n            node.send({ payload: r, statusCode: 200 }, false);\n            return msg;\n        }\n     \n        node.done();\n    })\n    .catch(e => {\n        node.warn(\"err: \"+err.message);\n        msg.payload = { status: false };\n        msg.statusCode = 500;\n        node.send({ payload: { status: false }, statusCode: 500 }, false);\n        node.done();\n        return msg;\n    })   \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 440,
+        "wires": [
+            [
+                "90ae6c5023eaa6ea",
+                "ca95ef9b64eb9b8b"
+            ]
+        ]
+    },
+    {
+        "id": "da36a99ef6c082e5",
+        "type": "debug",
+        "z": "a8898265bd7fa53c",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d5a5814ea449fde6",
+        "type": "jwt verify",
+        "z": "a8898265bd7fa53c",
+        "name": "",
+        "alg": [
+            "HS256"
+        ],
+        "jwkurl": "",
+        "secret": "123",
+        "key": "",
+        "signvar": "bearer",
+        "storetoken": "token",
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "f0a6c47b42789bf7"
+            ]
+        ]
+    },
+    {
+        "id": "ca95ef9b64eb9b8b",
+        "type": "debug",
+        "z": "a8898265bd7fa53c",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9939c8e72502db2b",
+        "type": "http in",
+        "z": "aba14334b01ea1c7",
+        "name": "Set Config",
+        "url": "/set-config",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "7cd67801816451ba"
+            ]
+        ]
+    },
+    {
+        "id": "c5dc546ca2c7bfbb",
+        "type": "http response",
+        "z": "aba14334b01ea1c7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2853189ef04eb170",
+        "type": "function",
+        "z": "aba14334b01ea1c7",
+        "name": "Handler",
+        "func": "const DEFAULT_DEVICE_INTERVAL_SECONDS = global.get('DEFAULT_DEVICE_INTERVAL_SECONDS');\n\nnode.warn(\"DEFAULT_DEVICE_INTERVAL_SECONDS \" + DEFAULT_DEVICE_INTERVAL_SECONDS);\nconst publisher = global.get('publisher');\nif (msg.payload.interval_send_time) {\n    global.set(\"DEFAULT_DEVICE_INTERVAL_SECONDS\", msg.payload.interval_send_time);\n    publisher.set(\"DEFAULT_DEVICE_INTERVAL_SECONDS\", msg.payload.interval_send_time);\n\n}\n\nif (msg.payload.alert_phone_number) {\n    global.set(\"ALERT_PHONE_NUMBER\", msg.payload.alert_phone_number);\n    publisher.set(\"ALERT_PHONE_NUMBER\", msg.payload.alert_phone_number);\n}\n\nif (msg.payload.partner_hook_api) {\n    global.set(\"PARTNER_HOOK_API\", msg.payload.partner_hook_api);\n    publisher.set(\"PARTNER_HOOK_API\", msg.payload.partner_hook_api);\n}\n\n;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "moment",
+                "module": "moment"
+            }
+        ],
+        "x": 600,
+        "y": 160,
+        "wires": [
+            [
+                "c5dc546ca2c7bfbb",
+                "78790bbc8e14ae87"
+            ]
+        ]
+    },
+    {
+        "id": "7cd67801816451ba",
+        "type": "jwt verify",
+        "z": "aba14334b01ea1c7",
+        "name": "",
+        "alg": [
+            "HS256"
+        ],
+        "jwkurl": "",
+        "secret": "123",
+        "key": "",
+        "signvar": "bearer",
+        "storetoken": "token",
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "2853189ef04eb170"
+            ]
+        ]
+    },
+    {
+        "id": "2d3e5e76e9da1340",
+        "type": "mqtt out",
+        "z": "aba14334b01ea1c7",
+        "name": "",
+        "topic": "/iot/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a8778dc2dd145f0c",
+        "x": 1040,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "78790bbc8e14ae87",
+        "type": "function",
+        "z": "aba14334b01ea1c7",
+        "name": "Send Command",
+        "func": "node.warn(msg.payload);\n\nmsg.payload.interval_send_time = global.get(\"DEFAULT_DEVICE_INTERVAL_SECONDS\");\n\nmsg.payload.alert_phone_number = global.get(\"ALERT_PHONE_NUMBER\");\n\nmsg.payload.partner_hook_api = global.get(\"PARTNER_HOOK_API\");\n\nmsg.payload = `${global.get(\"DEFAULT_DEVICE_INTERVAL_SECONDS\")};${global.get(\"ALERT_PHONE_NUMBER\")};${global.get(\"PARTNER_HOOK_API\")}`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 260,
+        "wires": [
+            [
+                "2d3e5e76e9da1340",
+                "64c6f3cd5cc72afe"
+            ]
+        ]
+    },
+    {
+        "id": "83155acba8f9b4a2",
+        "type": "inject",
+        "z": "aba14334b01ea1c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "2853189ef04eb170"
+            ]
+        ]
+    },
+    {
+        "id": "64c6f3cd5cc72afe",
+        "type": "debug",
+        "z": "aba14334b01ea1c7",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "663dbb08b54c30c2",
+        "type": "inject",
+        "z": "ae9198693d2cd410",
+        "name": "Sign and Validate",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 147.5,
+        "y": 214,
+        "wires": [
+            [
+                "4635db28236b62b6"
+            ]
+        ]
+    },
+    {
+        "id": "941785bd3008431d",
+        "type": "jwt sign",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "alg": "ES512",
+        "exp": "3601",
+        "jwkurl": "http://localhost:1880/priv_jwk",
+        "jwkkid": "nulli-ec-512",
+        "secret": "",
+        "key": "",
+        "signvar": "payload",
+        "storetoken": "payload",
+        "x": 552.5,
+        "y": 213,
+        "wires": [
+            [
+                "e741effe2f42022f",
+                "c56165f7d63a0d30"
+            ]
+        ]
+    },
+    {
+        "id": "e741effe2f42022f",
+        "type": "debug",
+        "z": "ae9198693d2cd410",
+        "name": "Debug Signed JWT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 774.5,
+        "y": 213,
+        "wires": []
+    },
+    {
+        "id": "c56165f7d63a0d30",
+        "type": "jwt verify",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "alg": [
+            "ES512"
+        ],
+        "jwkurl": "http://localhost:1880/pub_jwk",
+        "secret": "",
+        "key": "",
+        "signvar": "payload",
+        "storetoken": "payload",
+        "x": 548.5,
+        "y": 319,
+        "wires": [
+            [
+                "26d62ab49112f278"
+            ]
+        ]
+    },
+    {
+        "id": "26d62ab49112f278",
+        "type": "debug",
+        "z": "ae9198693d2cd410",
+        "name": "Debug Validated JWT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 778.5,
+        "y": 319,
+        "wires": []
+    },
+    {
+        "id": "30b04ecd6fecaa1d",
+        "type": "template",
+        "z": "ae9198693d2cd410",
+        "name": "Private JWK",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n  \"keys\": [\n    {\n      \"kty\": \"EC\",\n      \"d\": \"AXLoWyI1nApmP8lD1iFo3qjwBjJluXwNdYizbrcXpgUoX6F0gTtsOEQD9AxTqElgwHDfbs_IcwOSjfCh_4QeJnUM\",\n      \"use\": \"sig\",\n      \"crv\": \"P-521\",\n      \"kid\": \"nulli-ec-512\",\n      \"x\": \"AD0pM1Vkdw12HeM5AeY6PMuMbc66uG8oRiKV9hnm2x8U_dLgA7gRYNim4Y8_rixOeoHYlMzarRtDThLBS4CBlgrG\",\n      \"y\": \"ABuSEiwuSTIy02f1G2OnuSQN-9-s4KJxxXSqgMonKv3CPWaBVTJqfB4Viz9xUoY16d6ngJ2o66Kp2FUetTmxSptq\",\n      \"alg\": \"ES512\"\n    }\n  ]\n}",
+        "output": "json",
+        "x": 339.5,
+        "y": 40,
+        "wires": [
+            [
+                "db62c06c0472d62e"
+            ]
+        ]
+    },
+    {
+        "id": "db62c06c0472d62e",
+        "type": "http response",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 535.5,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "d8caa58d0b959085",
+        "type": "http in",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "url": "/priv_jwk",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 143.5,
+        "y": 41,
+        "wires": [
+            [
+                "30b04ecd6fecaa1d"
+            ]
+        ]
+    },
+    {
+        "id": "4635db28236b62b6",
+        "type": "template",
+        "z": "ae9198693d2cd410",
+        "name": "Create Claims",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"sub\":\"user\",\"iss\":\"http://nodered.nulli.com:1880/oauth2\",\"tokenName\":\"id_token\",\"aud\":\"client\",\"azp\":\"client\",\"tokenType\":\"JWTToken\"}",
+        "output": "json",
+        "x": 346.5,
+        "y": 214,
+        "wires": [
+            [
+                "941785bd3008431d"
+            ]
+        ]
+    },
+    {
+        "id": "60b6a3d2271d596b",
+        "type": "template",
+        "z": "ae9198693d2cd410",
+        "name": "Public JWK",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n  \"keys\": [\n    {\n      \"kty\": \"EC\",\n      \"use\": \"sig\",\n      \"crv\": \"P-521\",\n      \"kid\": \"nulli-ec-512\",\n      \"x\": \"AD0pM1Vkdw12HeM5AeY6PMuMbc66uG8oRiKV9hnm2x8U_dLgA7gRYNim4Y8_rixOeoHYlMzarRtDThLBS4CBlgrG\",\n      \"y\": \"ABuSEiwuSTIy02f1G2OnuSQN-9-s4KJxxXSqgMonKv3CPWaBVTJqfB4Viz9xUoY16d6ngJ2o66Kp2FUetTmxSptq\",\n      \"alg\": \"ES512\"\n    }\n  ]\n}",
+        "output": "json",
+        "x": 342,
+        "y": 130,
+        "wires": [
+            [
+                "637e39b1106339ef"
+            ]
+        ]
+    },
+    {
+        "id": "637e39b1106339ef",
+        "type": "http response",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 538,
+        "y": 130,
+        "wires": []
+    },
+    {
+        "id": "7e8eacc352aa34f0",
+        "type": "http in",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "url": "/pub_jwk",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 146,
+        "y": 131,
+        "wires": [
+            [
+                "60b6a3d2271d596b"
+            ]
+        ]
+    },
+    {
+        "id": "8cf0df325999605e",
+        "type": "jwt sign",
+        "z": "ae9198693d2cd410",
+        "name": "Sign Token",
+        "alg": "HS256",
+        "exp": "108000",
+        "jwkurl": "",
+        "jwkkid": "",
+        "secret": "myverysecret",
+        "key": "",
+        "signvar": "payload",
+        "storetoken": "payload",
+        "x": 950,
+        "y": 520,
+        "wires": [
+            [
+                "3256f626cf0fdd57"
+            ]
+        ]
+    },
+    {
+        "id": "3256f626cf0fdd57",
+        "type": "http response",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1230,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "3adf72716df8f3c7",
+        "type": "http in",
+        "z": "ae9198693d2cd410",
+        "name": "Login",
+        "url": "/login",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "2afa75a527380417"
+            ]
+        ]
+    },
+    {
+        "id": "e51ef1efbc5f0a2a",
+        "type": "inject",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.username",
+                "v": "a@a.com",
+                "vt": "str"
+            },
+            {
+                "p": "payload.password",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "c856e1b51337a7f3"
+            ]
+        ]
+    },
+    {
+        "id": "c856e1b51337a7f3",
+        "type": "change",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.username",
+                "pt": "msg",
+                "to": "username",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.password",
+                "pt": "msg",
+                "to": "password",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 440,
+        "wires": [
+            [
+                "a2aeedca7ff5d400"
+            ]
+        ]
+    },
+    {
+        "id": "49f8e6a77181d5af",
+        "type": "function",
+        "z": "ae9198693d2cd410",
+        "name": "set payload",
+        "func": "msg.db.collection('users')\n    .findOne({\n        username: msg.payload.username,\n        pasword: msg.payload.password\n    },{username:1,password:0})\n    .then(r => node.send({ payload: r }))\n    .catch(e => node.error(e.message, msg))   \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 580,
+        "wires": [
+            [
+                "7eba5b0f53578166"
+            ]
+        ]
+    },
+    {
+        "id": "12063f0514915f0c",
+        "type": "inject",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 900,
+        "wires": [
+            [
+                "f71c1d86bd7ff4cd"
+            ]
+        ]
+    },
+    {
+        "id": "8238822fc5a8df40",
+        "type": "function",
+        "z": "ae9198693d2cd410",
+        "name": "function 6",
+        "func": "msg.db.collection('users')\n    .insert({\n        username: \"a@a.com\",\n        pasword: \"123\"\n    })\n    .then(r => node.send({ payload: r }))\n    .catch(e => node.error(e.message, msg))   \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 960,
+        "wires": [
+            [
+                "e67f5778e78cdc1a"
+            ]
+        ]
+    },
+    {
+        "id": "f71c1d86bd7ff4cd",
+        "type": "mongo-client in",
+        "z": "ae9198693d2cd410",
+        "configNode": "0c9923070de109e8",
+        "name": "MongoClient",
+        "collectionName": "users",
+        "x": 290,
+        "y": 920,
+        "wires": [
+            [
+                "8238822fc5a8df40"
+            ]
+        ]
+    },
+    {
+        "id": "e67f5778e78cdc1a",
+        "type": "debug",
+        "z": "ae9198693d2cd410",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "7eba5b0f53578166",
+        "type": "switch",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "property": "payload['username']",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 770,
+        "y": 560,
+        "wires": [
+            [
+                "8cf0df325999605e"
+            ],
+            [
+                "f7d6d5d4c4263774"
+            ]
+        ]
+    },
+    {
+        "id": "f7d6d5d4c4263774",
+        "type": "http response",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "statusCode": "401",
+        "headers": {},
+        "x": 980,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "a2aeedca7ff5d400",
+        "type": "mongodb4",
+        "z": "ae9198693d2cd410",
+        "clientNode": "5ffae5aac8f8aaea",
+        "mode": "collection",
+        "collection": "users",
+        "operation": "insertOne",
+        "output": "toArray",
+        "maxTimeMS": "0",
+        "handleDocId": false,
+        "name": "",
+        "x": 540,
+        "y": 440,
+        "wires": [
+            [
+                "a49bf701fcfdf8be"
+            ]
+        ]
+    },
+    {
+        "id": "a49bf701fcfdf8be",
+        "type": "debug",
+        "z": "ae9198693d2cd410",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ec45fb87f1820bec",
+        "type": "inject",
+        "z": "ae9198693d2cd410",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.password",
+                "v": "123",
+                "vt": "str"
+            },
+            {
+                "p": "payload.username",
+                "v": "a@a.com",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 620,
+        "wires": [
+            [
+                "2afa75a527380417"
+            ]
+        ]
+    },
+    {
+        "id": "a0354eb0fe450fce",
+        "type": "debug",
+        "z": "ae9198693d2cd410",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2afa75a527380417",
+        "type": "mongo-client in",
+        "z": "ae9198693d2cd410",
+        "configNode": "0c9923070de109e8",
+        "name": "MongoClient",
+        "collectionName": "users",
+        "x": 290,
+        "y": 620,
+        "wires": [
+            [
+                "49f8e6a77181d5af"
+            ]
+        ]
+    },
+    {
+        "id": "bef6cdd086ac7a47",
+        "type": "mongodb4",
+        "z": "ae9198693d2cd410",
+        "clientNode": "5ffae5aac8f8aaea",
+        "mode": "collection",
+        "collection": "users",
+        "operation": "findOne",
+        "output": "toArray",
+        "maxTimeMS": "0",
+        "handleDocId": false,
+        "name": "",
+        "x": 580,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "16480c6b70caa49b",
+        "type": "inject",
+        "z": "608253cc98b204c1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 280,
+        "wires": [
+            [
+                "99bf85e161c3b832"
+            ]
+        ]
+    },
+    {
+        "id": "99bf85e161c3b832",
+        "type": "mongo-client in",
+        "z": "608253cc98b204c1",
+        "configNode": "0c9923070de109e8",
+        "name": "UserModel",
+        "collectionName": "users",
+        "x": 390,
+        "y": 280,
+        "wires": [
+            [
+                "67f2608c373d9280"
+            ]
+        ]
+    },
+    {
+        "id": "67f2608c373d9280",
+        "type": "function",
+        "z": "608253cc98b204c1",
+        "name": "function 5",
+        "func": "msg.db.collection('users')\n    .insert({\n        username: \"a@a.com\",\n        pasword: \"123\"\n    })\n    .then(r => node.send({ payload: r }))\n    .catch(e => node.error(e.message, msg))   \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "118d069b5eb013f2"
+            ]
+        ]
+    },
+    {
+        "id": "118d069b5eb013f2",
+        "type": "debug",
+        "z": "608253cc98b204c1",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "2163c482.b8a244",
+        "type": "redis-command",
+        "z": "f6f2187d.f17ca8",
+        "server": "6031756b32233f96",
+        "command": "get",
+        "name": "",
+        "topic": "",
+        "params": "[]",
+        "paramsType": "json",
+        "payloadType": "json",
+        "block": false,
+        "x": 500,
+        "y": 700,
+        "wires": [
+            [
+                "d2ea99d4.a4c51"
+            ]
+        ]
+    },
+    {
+        "id": "b5f040ea.800be8",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "key",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 270,
+        "y": 700,
+        "wires": [
+            [
+                "2163c482.b8a244"
+            ]
+        ]
+    },
+    {
+        "id": "d2ea99d4.a4c51",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 810,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "dac5fcff.4c4cb",
+        "type": "redis-in",
+        "z": "f6f2187d.f17ca8",
+        "d": true,
+        "server": "6031756b32233f96",
+        "command": "subscribe",
+        "name": "",
+        "topic": "TOPIC:OK",
+        "obj": false,
+        "timeout": 0,
+        "x": 260,
+        "y": 620,
+        "wires": [
+            [
+                "6f01eb54.501e7c"
+            ]
+        ]
+    },
+    {
+        "id": "6f01eb54.501e7c",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 490,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "db89d32b25edd7a5",
+        "type": "redis-command",
+        "z": "f6f2187d.f17ca8",
+        "server": "6031756b32233f96",
+        "command": "set",
+        "name": "",
+        "topic": "",
+        "params": "[]",
+        "paramsType": "json",
+        "payloadType": "json",
+        "block": false,
+        "x": 480,
+        "y": 800,
+        "wires": [
+            [
+                "a7907da76aa14214"
+            ]
+        ]
+    },
+    {
+        "id": "c8a0af1ce29174db",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"key\",\"value\"]",
+        "payloadType": "json",
+        "x": 270,
+        "y": 800,
+        "wires": [
+            [
+                "db89d32b25edd7a5"
+            ]
+        ]
+    },
+    {
+        "id": "a7907da76aa14214",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 770,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "d1120fd51ae4ce5f",
+        "type": "redis-command",
+        "z": "f6f2187d.f17ca8",
+        "server": "6031756b32233f96",
+        "command": "getset",
+        "name": "",
+        "topic": "",
+        "params": "[]",
+        "paramsType": "json",
+        "payloadType": "json",
+        "block": false,
+        "x": 490,
+        "y": 860,
+        "wires": [
+            [
+                "ccbb7d2744081bab"
+            ]
+        ]
+    },
+    {
+        "id": "c7b258ba79e22196",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "key",
+        "payload": "[\"value\"]",
+        "payloadType": "json",
+        "x": 270,
+        "y": 860,
+        "wires": [
+            [
+                "d1120fd51ae4ce5f"
+            ]
+        ]
+    },
+    {
+        "id": "ccbb7d2744081bab",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 770,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "9f6b627b69e7c986",
+        "type": "redis-command",
+        "z": "f6f2187d.f17ca8",
+        "server": "6031756b32233f96",
+        "command": "get",
+        "name": "",
+        "topic": "",
+        "params": "[]",
+        "paramsType": "json",
+        "payloadType": "json",
+        "block": false,
+        "x": 480,
+        "y": 920,
+        "wires": [
+            [
+                "8f5671cf823ce5a3"
+            ]
+        ]
+    },
+    {
+        "id": "dae04b155f0cbf7b",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "key",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 250,
+        "y": 920,
+        "wires": [
+            [
+                "9f6b627b69e7c986",
+                "a4f6def652ab4dec"
+            ]
+        ]
+    },
+    {
+        "id": "8f5671cf823ce5a3",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 790,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "a4f6def652ab4dec",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 1",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "047ad3b9b0478a51",
+        "type": "http request",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "/device-send-data",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 250,
+        "y": 400,
+        "wires": [
+            [
+                "89261a2ffe39cc14"
+            ]
+        ]
+    },
+    {
+        "id": "6447b4aeab7e0c43",
+        "type": "http response",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "89261a2ffe39cc14",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 2",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 400,
+        "wires": [
+            [
+                "6447b4aeab7e0c43",
+                "36fcb58105e87469"
+            ]
+        ]
+    },
+    {
+        "id": "36fcb58105e87469",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 500,
+        "wires": []
+    }
+]
